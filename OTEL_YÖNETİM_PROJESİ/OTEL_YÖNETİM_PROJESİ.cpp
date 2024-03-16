@@ -52,7 +52,7 @@ class otel
 
 int main()
 {
-	otel hotel();
+	otel hotel;
 
 	return 0;
 }
