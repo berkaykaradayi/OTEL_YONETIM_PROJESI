@@ -48,6 +48,15 @@ class otel
 
 	 cin >> secim;
 
+	 if (1 == secim)
+	 {
+
+	 }
+	 if (2 == secim)
+	 {
+
+	 }
+
  }
 
 int main()
