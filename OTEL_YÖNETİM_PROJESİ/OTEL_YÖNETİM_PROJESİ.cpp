@@ -5,10 +5,12 @@
 
 using namespace std;
 
+#define  bosluk endl
+
 class otel
 {	
 	string *customer_name[50], *customer_surname[50];
-	int oda_sayac=0, seminer_sayac=0;
+	int oda_sayac = 0, seminer_sayac = 0, toplam_para = 0;
 	enum status {
 		bos, dolu
 	}oda[50];
@@ -52,12 +54,12 @@ class otel
 		 cout << "3- Seminer Odasi, Fiyat: 400 TL" << endl;     
 		 cin >> oda_secim;
 			
-		 if (1==oda_secim) //this reverse notation refers to Yoda Style, 
+		 if (1 == oda_secim) //this reverse notation refers to Yoda Style, 
 								//that prevents to assign a value if you forget "==", 
 									//otherwise, it will assign unwanted value.
-		 {			 
+		 {
 
-			 for (;  i<16 ; i++)
+			 for (; i < 16; i++)
 			 {
 				 if (oda[i] != dolu)
 				 {
@@ -71,29 +73,38 @@ class otel
 					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
 					 cin >> gun;
 
+					 toplam_para += gun * 300;
 					 oda_sayac++; // Oda Sayısı için
 
-					 *customer_name = new string(name);
-					 //*customer_name = name;
+					 customer_name[i] = new string;
+					 *customer_name[i] = name;
 
 					 customer_surname[i] = new string;
-
-
+					 *customer_surname[i] = surname;
 					 break;
 				 }
 
+
 			 }
-			
-			
 
+			 if (16 == i)
+			 {
+				 cout << "Uzgunuz, Tek Kisilik Odamiz maalesef yok." << endl;
+			 }
 
-		 
 		 }
-		 else if (2==oda_secim)
+		 else if (2 == oda_secim)
 		 {
 
 
 		 }
+
+		 else if (3 == oda_secim)
+		 {
+
+		 }
+		 else
+			 cout << "Lutfen dogru secim yapiniz!!!" << bosluk;
 			
 
 
