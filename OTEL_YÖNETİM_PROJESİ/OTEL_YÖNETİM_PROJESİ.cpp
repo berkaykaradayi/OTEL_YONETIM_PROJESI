@@ -8,7 +8,7 @@ using namespace std;
 class otel
 {	
 	string *customer_name[50], *customer_surname[50];
-	int sayac=0;
+	int oda_sayac=0, seminer_sayac=0;
 	enum status {
 		bos, dolu
 	}oda[50];
@@ -35,20 +35,17 @@ class otel
  {
 	 int gun, oda_secim;
 	 string name, surname;
+
+	 int i = 1, j=16;
+
 	 cout << "Oda Rezervasyonuna Hos Geldiniz!!" << endl;
 		
-	 if (sayac >= 45)
+	 if (oda_sayac >= 45)
 	 {
 		 cout << "Uzgunuz, bos odamiz yok"<<endl;
 	 }
 	 else
-	 { 
-			
-		 cout << "Lutfen Adinizi Girin:"<<endl;
-		 cin >> name;
-		 cout << "Lutfen Soyadinizi Girin:" << endl;
-		 cin >> surname;
-		 
+	 {  
 		 cout << "Hangi odayi secmek istiyorsunuz?"<<endl;
 		 cout << "1- Tek Kisilik Oda, Fiyat: 300 TL"<<endl;
 		 cout << "2- Çİft Kisilik Oda, Fiyat: 500 TL" << endl;
@@ -57,17 +54,50 @@ class otel
 			
 		 if (1==oda_secim) //this reverse notation refers to Yoda Style, 
 								//that prevents to assign a value if you forget "==", 
-									//otherwise, it will assign unwanted value. 
-		 {
+									//otherwise, it will assign unwanted value.
+		 {			 
+
+			 for (;  i<16 ; i++)
+			 {
+				 if (oda[i] != dolu)
+				 {
+					 oda[i] = dolu;
+
+					 cout << "Lutfen Adinizi Girin:" << endl;
+					 cin >> name;
+					 cout << "Lutfen Soyadinizi Girin:" << endl;
+					 cin >> surname;
+
+					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
+					 cin >> gun;
+
+					 oda_sayac++; // Oda Sayısı için
+
+					 *customer_name = new string(name);
+					 //*customer_name = name;
+
+					 customer_surname[i] = new string;
+
+
+					 break;
+				 }
+
+			 }
+			
+			
 
 
 		 
 		 }
+		 else if (2==oda_secim)
+		 {
+
+
+		 }
 			
 
 
-		 cout << "Kac gun kalmak istiyorsunuz?" << endl;
-		 cin >> gun;
+		 
 			
 		
 	 }
