@@ -33,20 +33,41 @@ class otel
 
  void otel::oda_rezervasyon()
  {
-	 int gun;
-	 string *name[50], *surname[50];
+	 int gun, oda_secim;
+	 string name, surname;
 	 cout << "Oda Rezervasyonuna Hos Geldiniz!!" << endl;
 		
-	 if (sayac >= 49)
+	 if (sayac >= 45)
 	 {
 		 cout << "Uzgunuz, bos odamiz yok"<<endl;
 	 }
 	 else
 	 { 
+			
 		 cout << "Lutfen Adinizi Girin:"<<endl;
 		 cin >> name;
+		 cout << "Lutfen Soyadinizi Girin:" << endl;
+		 cin >> surname;
+		 
+		 cout << "Hangi odayi secmek istiyorsunuz?"<<endl;
+		 cout << "1- Tek Kisilik Oda, Fiyat: 300 TL"<<endl;
+		 cout << "2- Çİft Kisilik Oda, Fiyat: 500 TL" << endl;
+		 cout << "3- Seminer Odasi, Fiyat: 400 TL" << endl;     
+		 cin >> oda_secim;
+			
+		 if (1==oda_secim) //this reverse notation refers to Yoda Style, 
+								//that prevents to assign a value if you forget "==", 
+									//otherwise, it will assign unwanted value. 
+		 {
+
+
+		 
+		 }
+			
+
+
 		 cout << "Kac gun kalmak istiyorsunuz?" << endl;
-		cin >> gun;
+		 cin >> gun;
 			
 		
 	 }
