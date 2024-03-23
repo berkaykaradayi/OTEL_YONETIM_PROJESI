@@ -182,7 +182,9 @@ class otel
 
 int main()
 {
-	otel hotel;
-
-	return 0;
+	otel hotel; // we create object named "hotel", so it will call constructor that has no parameter(s).
+	           
+	            //we are done for main. All operations will be executed from constructor, which is "otel". 
+							//And that will call the menu() function that will run all other operaitons.
+	return 0;   
 }
