@@ -122,11 +122,14 @@ class otel
 		 oda[i] = bos;
 	 }
 
-	 do
-	 {
-		cout << "           OTELE HOS GELDINIZ." << endl;
+	 cout << "           OTELE HOS GELDINIZ." << endl;
 		cout << "-------------------------------------------"<<endl;
 		cout << "-------------------------------------------" << endl;
+	 
+	 
+	 do
+	 {
+		
 
 		cout << "Lutfen yapmak istediğiniz islemi secin." << endl;
 
@@ -145,11 +148,31 @@ class otel
 			 oda_rezervasyon();
 		 }
 		 if (2 == secim)
-		{
+		 {
 
-		}
+		 }
+		 if (3 == secim)
+		 {
 
+		 }
+		 if (4 == secim)
+		 {
 
+		 }
+		 if (5 == secim)
+		 {
+
+		 }
+		 if (6 == secim)
+		 {
+
+		 }
+
+		 else if (7==secim)
+		 {
+			cout << "Cikis Yapiliyor..."<<endl;
+		 }
+			 
 	 } while (secim!=7);
 	 
 	 
