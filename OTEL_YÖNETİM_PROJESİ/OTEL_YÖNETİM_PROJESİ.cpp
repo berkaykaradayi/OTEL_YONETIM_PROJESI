@@ -11,6 +11,9 @@ class otel
 {	
 	string *customer_name[50], *customer_surname[50];
 	int oda_sayac = 0, seminer_sayac = 0, toplam_para = 0;
+
+	int* customer_total_price[50];
+
 	enum status {
 		bos, dolu
 	}oda[50];
@@ -22,6 +25,7 @@ class otel
 		//functions here
 		void menu();
 		void oda_rezervasyon();
+		void oda_bosaltma();
 
 	~otel(){}
 };
@@ -38,7 +42,7 @@ class otel
 	 int gun, oda_secim;
 	 string name, surname;
 
-	 int i = 1, j=16;
+	 int i = 1, j=16, k=46, musteri_para_toplam=0;
 
 	 cout << "Oda Rezervasyonuna Hos Geldiniz!!" << endl;
 		
@@ -50,7 +54,7 @@ class otel
 	 {  
 		 cout << "Hangi odayi secmek istiyorsunuz?"<<endl;
 		 cout << "1- Tek Kisilik Oda, Fiyat: 300 TL"<<endl;
-		 cout << "2- Çİft Kisilik Oda, Fiyat: 500 TL" << endl;
+		 cout << "2- Cİft Kisilik Oda, Fiyat: 500 TL" << endl;
 		 cout << "3- Seminer Odasi, Fiyat: 400 TL" << endl;     
 		 cin >> oda_secim;
 			
@@ -73,6 +77,7 @@ class otel
 					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
 					 cin >> gun;
 
+					 musteri_para_toplam += gun * 300; // for calcualting indivudual customer's money
 					 toplam_para += gun * 300;
 					 oda_sayac++; // Oda Sayısı için
 
@@ -81,6 +86,9 @@ class otel
 
 					 customer_surname[i] = new string;
 					 *customer_surname[i] = surname;
+
+					 customer_total_price[i] = new int;
+					 *customer_total_price[i] = musteri_para_toplam; // for calcualting indivudual customer's money
 					 break;
 				 }
 				  /////// burada kaldım
@@ -114,6 +122,11 @@ class otel
 	 }
  }
 
+ void otel::oda_bosaltma()
+ {
+
+
+ }
  void otel::menu()
  {
 	 int secim;
