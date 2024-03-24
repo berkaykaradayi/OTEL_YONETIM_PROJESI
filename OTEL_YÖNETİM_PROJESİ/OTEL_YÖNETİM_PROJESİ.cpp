@@ -10,8 +10,8 @@ using namespace std;
 class otel
 {	
 	string *customer_name[50], *customer_surname[50];
-	int oda_sayac = 0, seminer_sayac = 0, toplam_para = 0;
-
+	int oda_sayac = 0, toplam_para = 0;
+	int seminer_oda_sayac = 0;
 	int* customer_total_price[50];
 
 	enum status {
@@ -48,7 +48,7 @@ class otel
 		
 	 if (oda_sayac >= 45)
 	 {
-		 cout << "Uzgunuz, bos odamiz yok"<<endl;
+		 cout << "Uzgunuz, bos odamiz yok" << endl;
 	 }
 	 else
 	 {  
@@ -105,7 +105,7 @@ class otel
 		 }
 		 else if (2 == oda_secim)
 		 {
-			 for (; j < 46; i++)
+			 for (; j < 46; j++)
 			 {
 				 if (oda[j] != dolu)
 				 {
@@ -148,7 +148,44 @@ class otel
 
 		 else if (3 == oda_secim)
 		 {
+			 for (; k < 51; k++)
+			 {
+				 if (oda[k] != dolu)
+				 {
+					 oda[k] = dolu;
 
+					 cout << "Lutfen Adinizi Girin:" << endl;
+					 cin >> name;
+					 cout << "Lutfen Soyadinizi Girin:" << endl;
+					 cin >> surname;
+
+					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
+					 cin >> gun;
+
+					 musteri_para_toplam = gun * 400; // for calculating individual customer's money
+					 toplam_para += gun * 400;
+					 seminer_oda_sayac++; // Seminer Oda Sayısı için
+
+					 customer_name[k] = new string;
+					 *customer_name[k] = name;
+
+					 customer_surname[k] = new string;
+					 *customer_surname[k] = surname;
+
+					 customer_total_price[k] = new int;
+					 *customer_total_price[k] = musteri_para_toplam; // for calculating individual customer's money
+
+								//cout << "Odenen para: " << *customer_total_price[k]<<endl;
+					 break;
+				 }
+
+
+			 }
+
+			 if (51 == i)
+			 {
+				 cout << "Uzgunuz, Seminer Odamiz maalesef yok." << endl;
+			 }
 		 }
 		 else
 			 cout << "Lutfen dogru secim yapiniz!!!" << bosluk;
