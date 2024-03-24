@@ -54,7 +54,7 @@ class otel
 	 {  
 		 cout << "Hangi odayi secmek istiyorsunuz?"<<endl;
 		 cout << "1- Tek Kisilik Oda, Fiyat: 300 TL"<<endl;
-		 cout << "2- Cİft Kisilik Oda, Fiyat: 500 TL" << endl;
+		 cout << "2- Cift Kisilik Oda, Fiyat: 500 TL" << endl;
 		 cout << "3- Seminer Odasi, Fiyat: 400 TL" << endl;     
 		 cin >> oda_secim;
 			
@@ -77,7 +77,7 @@ class otel
 					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
 					 cin >> gun;
 
-					 musteri_para_toplam += gun * 300; // for calculating individual customer's money
+					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
 					 toplam_para += gun * 300;
 					 oda_sayac++; // Oda Sayısı için
 
@@ -105,7 +105,44 @@ class otel
 		 }
 		 else if (2 == oda_secim)
 		 {
+			 for (; j < 46; i++)
+			 {
+				 if (oda[j] != dolu)
+				 {
+					 oda[j] = dolu;
 
+					 cout << "Lutfen Adinizi Girin:" << endl;
+					 cin >> name;
+					 cout << "Lutfen Soyadinizi Girin:" << endl;
+					 cin >> surname;
+
+					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
+					 cin >> gun;
+
+					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
+					 toplam_para += gun * 300;
+					 oda_sayac++; // Toplam oda Sayısı için
+
+					 customer_name[j] = new string;
+					 *customer_name[j] = name;
+
+					 customer_surname[j] = new string;
+					 *customer_surname[j] = surname;
+
+					 customer_total_price[j] = new int;
+					 *customer_total_price[j] = musteri_para_toplam; // for calculating individual customer's money
+
+					 cout << "Odenen para: " << *customer_total_price[j] << endl;
+					 break;
+				 }
+
+
+			 }
+
+			 if (46 == j)
+			 {
+				 cout << "Uzgunuz, Cift Kisilik Odamiz maalesef yok." << endl;
+			 }
 
 		 }
 
