@@ -89,9 +89,11 @@ class otel
 
 					 customer_total_price[i] = new int;
 					 *customer_total_price[i] = musteri_para_toplam; // for calcualting indivudual customer's money
+					 
+								//cout << "Odenen para: " << *customer_total_price[i]<<endl;
 					 break;
 				 }
-				  /////// burada kaldım
+				 
 
 			 }
 
