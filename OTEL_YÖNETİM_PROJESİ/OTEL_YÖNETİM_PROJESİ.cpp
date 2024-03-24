@@ -83,7 +83,7 @@ class otel
 					 *customer_surname[i] = surname;
 					 break;
 				 }
-
+				  /////// burada kaldım
 
 			 }
 
