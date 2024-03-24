@@ -119,8 +119,8 @@ class otel
 					 cout << "Kac gun kalmak istiyorsunuz?" << endl;
 					 cin >> gun;
 
-					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
-					 toplam_para += gun * 300;
+					 musteri_para_toplam = gun * 500; // for calculating individual customer's money
+					 toplam_para += gun * 500;
 					 oda_sayac++; // Toplam oda Sayısı için
 
 					 customer_name[j] = new string;
@@ -201,7 +201,7 @@ class otel
 		 }
 		 if (2 == secim)
 		 {
-
+			 oda_bosaltma();
 		 }
 		 if (3 == secim)
 		 {
