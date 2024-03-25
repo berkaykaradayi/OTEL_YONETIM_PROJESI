@@ -46,9 +46,9 @@ class otel
 
 	 cout << "Oda Rezervasyonuna Hos Geldiniz!!" << endl;
 		
-	 if (oda_sayac >= 45)
+	 if (oda_sayac >= 50)
 	 {
-		 cout << "Uzgunuz, bos odamiz yok" << endl;
+		 cout << "Uzgunuz, bos oda ve seminer odasi yok" << endl;
 	 }
 	 else
 	 {  
