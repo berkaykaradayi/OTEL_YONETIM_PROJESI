@@ -206,12 +206,19 @@ class otel
 		 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
 		 cin >> oda_no;
 
-			if (oda[oda_no]==bos)
+			if (oda_no>50)
 			{
-				cout << "Bosaltmak Istediginiz Oda Zaten Bos!!"<<endl;
+			 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
 			}
 			else
 			{
+		 
+				if (oda[oda_no]==bos)
+				{
+				cout << "Bosaltmak Istediginiz Oda Zaten Bos!!"<<endl;
+				}
+			    else
+				{
 				cout << "----------Oda  Silinmeden Once Oda Bilgileri-----------:" << endl<<endl;
 				cout << "Isim: " << *customer_name[oda_no]<<endl;
 				cout << "Soyisim: " << *customer_surname[oda_no]<<endl;
@@ -223,8 +230,10 @@ class otel
 				delete customer_surname[oda_no]; ///////////7
 				oda_sayac--;
 				cout << "Oda bosaltilmistir." << endl<<endl;
+				}
 			}
-		}
+
+	    }
 
  }
  void otel::menu()
