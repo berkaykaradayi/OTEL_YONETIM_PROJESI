@@ -211,7 +211,7 @@ class otel
 			 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
 			}
 			else
-			{
+			{						////SEMINER ODASI SAYACI İÇİN TEKRRA BAK BURAYA
 		 
 				if (oda[oda_no]==bos)
 				{
