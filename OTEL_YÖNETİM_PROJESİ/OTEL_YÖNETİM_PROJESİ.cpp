@@ -60,7 +60,7 @@ class otel
 			
 		 if (1 == oda_secim) //this reverse notation refers to Yoda Style, 
 								//that prevents to assign a value if you forget "==", 
-									//otherwise, it will assign unwanted value.
+									//otherwise, it will assign unwanted value and cause error.
 		 {
 
 			 for (; i < 16; i++)
