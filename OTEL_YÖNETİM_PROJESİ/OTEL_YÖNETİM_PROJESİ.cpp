@@ -184,23 +184,41 @@ class otel
 
 			 if (51 == k)
 			 {
-				 cout << "Uzgunuz, Seminer Odamiz maalesef yok." << endl;
-			 } ////////////////////////// BURADA KALDIM...................
+				 cout << "Uzgunuz, Butun Seminer Odalarimiz maalesef dolu." << endl;
+			 } 
 		 }
 		 else
 			 cout << "Lutfen dogru secim yapiniz!!!" << bosluk;
-			
 
-
-		 
-			
 		
 	 }
  }
 
  void otel::oda_bosaltma()
- {
+ {	
+	 int oda_no;
+	 if (oda_sayac==0)
+	 {
+		 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
+	 }
+		else
+		{
+		 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
+		 cin >> oda_no;
 
+			if (oda[oda_no]==bos)
+			{
+				cout << "Bosaltmak Istediginiz Oda Zaten Bos!!"<<endl;
+			}
+			else
+			{
+				oda[oda_no] = bos;
+				delete  customer_name[oda_no];
+				delete customer_surname[oda_no]; ///////////7
+				oda_sayac--;
+				cout << "Oda bosaltilmistir." << endl;
+			}
+		}
 
  }
  void otel::menu()
