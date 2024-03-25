@@ -185,7 +185,7 @@ class otel
 			 if (51 == k)
 			 {
 				 cout << "Uzgunuz, Seminer Odamiz maalesef yok." << endl;
-			 } ////////////////////////// BURADA KALDIM
+			 } ////////////////////////// BURADA KALDIM...................
 		 }
 		 else
 			 cout << "Lutfen dogru secim yapiniz!!!" << bosluk;
