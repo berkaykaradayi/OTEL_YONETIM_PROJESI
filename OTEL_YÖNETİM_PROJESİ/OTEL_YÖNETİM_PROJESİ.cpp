@@ -175,7 +175,7 @@ class otel
 					 customer_total_price[k] = new int;
 					 *customer_total_price[k] = musteri_para_toplam; // for calculating individual customer's money
 
-								//cout << "Odenen para: " << *customer_total_price[k]<<endl;
+								cout << "Odenenecek para: " << *customer_total_price[k]<<endl;
 					 break;
 				 }
 
@@ -212,11 +212,17 @@ class otel
 			}
 			else
 			{
+				cout << "----------Oda  Silinmeden Once Oda Bilgileri-----------:" << endl<<endl;
+				cout << "Isim: " << *customer_name[oda_no]<<endl;
+				cout << "Soyisim: " << *customer_surname[oda_no]<<endl;
+				cout << "Odenecek Para: " << *customer_total_price[oda_no]<<endl;
+				cout << "-----------------------------------------------------------" << endl<<endl;
+
 				oda[oda_no] = bos;
 				delete  customer_name[oda_no];
 				delete customer_surname[oda_no]; ///////////7
 				oda_sayac--;
-				cout << "Oda bosaltilmistir." << endl;
+				cout << "Oda bosaltilmistir." << endl<<endl;
 			}
 		}
 
