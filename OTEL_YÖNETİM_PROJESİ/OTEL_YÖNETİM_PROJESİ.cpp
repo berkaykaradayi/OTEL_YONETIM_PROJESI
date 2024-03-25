@@ -79,7 +79,7 @@ class otel
 
 					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
 					 toplam_para += gun * 300;
-					 oda_sayac++; // Oda Sayısı için
+					 oda_sayac++; // For total room (including seminer room) count
 
 					 customer_name[i] = new string;
 					 *customer_name[i] = name;
