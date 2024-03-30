@@ -166,8 +166,9 @@ class otel
 
 					 musteri_para_toplam = gun * 400; // for calculating individual customer's money
 					 toplam_para += gun * 400;
-					 seminer_oda_sayac++; // Seminer Oda Sayısı için
 
+					 seminer_oda_sayac++; // Seminer Oda Sayısı için
+					 //oda_sayac++;
 					 customer_name[k] = new string;
 					 *customer_name[k] = name;
 
@@ -199,13 +200,16 @@ class otel
  void otel::oda_bosaltma()
  {	
 	 int oda_no, /*seminer_no,*/ oda_secim;
+	 int toplam_sayac=0;
 
 	 cout << "Hangi odayi bosaltmak istiyorsunuz? Normal Oda icin 1, Seminer Odasi icin 2 'ye basin."<<endl;
 	 cin >> oda_secim;
-	 
+
+	 toplam_sayac = oda_sayac + seminer_oda_sayac;
+
 	 if (1 == oda_secim)
 	 {
-		 if (oda_sayac == 0)
+		 if (oda_sayac == 0 && seminer_oda_sayac)
 		 {
 			 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
 		 }
@@ -219,7 +223,7 @@ class otel
 				 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
 			 }
 			 else
-			 {						////SEMINER ODASI SAYACI İÇİN TEKRRA BAK BURAYA
+			 {						
 
 				 if (bos == oda[oda_no])
 				 {
@@ -245,8 +249,43 @@ class otel
 	 }
 	 else if (2 == oda_secim)
 	 {
+		 if (oda_sayac == 0 && seminer_oda_sayac==0) //toplam_sayac;;
+		 {
+			 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
+		 }
+		 else
+		 {
+			 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
+			 cin >> oda_no;
 
-		 //SEMİNER ODASI İÇİN SİLME İŞLEMİ GELECEK BURAYA
+			 if (oda_no > 50)
+			 {
+				 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
+			 }
+			 else
+			 {						
+
+				 if (bos == oda[oda_no])
+				 {
+					 cout << "Bosaltmak Istediginiz Seminer Odasi Zaten Bos!!" << endl;
+				 }
+				 else
+				 {
+					 cout << "----------Oda  Silinmeden Once Oda Bilgileri-----------:" << endl << endl;
+					 cout << "Isim: " << *customer_name[oda_no] << endl;
+					 cout << "Soyisim: " << *customer_surname[oda_no] << endl;
+					 cout << "Odenecek Para: " << *customer_total_price[oda_no] << endl;
+					 cout << "-----------------------------------------------------------" << endl << endl;
+
+					 oda[oda_no] = bos;
+					 delete  customer_name[oda_no];
+					 delete customer_surname[oda_no]; ///////////???
+					 seminer_oda_sayac--;///////////////////////////////////??????????????
+					 cout << "Seminer Odasi bosaltilmistir." << endl << endl;
+				 }
+			 }
+
+		 }
 	 }
 	 else
 		 cout << "YANLIS TERCIH YAPTINIZ!! LUTFEN TEKRAR DENEYIN." << endl;
