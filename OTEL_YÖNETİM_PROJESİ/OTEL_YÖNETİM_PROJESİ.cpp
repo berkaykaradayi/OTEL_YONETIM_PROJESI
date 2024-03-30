@@ -9,14 +9,14 @@ using namespace std;
 
 class otel
 {	
-	string *customer_name[50], *customer_surname[50];
+	string *customer_name[55], *customer_surname[55];
 	int oda_sayac = 0, toplam_para = 0;
 	int seminer_oda_sayac = 0;
-	int* customer_total_price[50];
+	int* customer_total_price[51];
 
 	enum status {
 		bos, dolu
-	}oda[50];
+	}oda[51]; // was 50
 
 	public:
 	//otel(){}
@@ -123,8 +123,10 @@ class otel
 					 toplam_para += gun * 500;
 					 oda_sayac++; // Toplam oda Sayısı için
 
+					 
+					 
 					 customer_name[j] = new string;
-					 *customer_name[j] = name;
+					 *customer_name[j] = name;   
 
 					 customer_surname[j] = new string;
 					 *customer_surname[j] = surname;
@@ -196,50 +198,64 @@ class otel
 
  void otel::oda_bosaltma()
  {	
-	 int oda_no;
-	 if (oda_sayac==0)
+	 int oda_no, /*seminer_no,*/ oda_secim;
+
+	 cout << "Hangi odayi bosaltmak istiyorsunuz? Normal Oda icin 1, Seminer Odasi icin 2 'ye basin."<<endl;
+	 cin >> oda_secim;
+	 
+	 if (1 == oda_secim)
 	 {
-		 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
+		 if (oda_sayac == 0)
+		 {
+			 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
+		 }
+		 else
+		 {
+			 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
+			 cin >> oda_no;
+
+			 if (oda_no > 50)
+			 {
+				 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
+			 }
+			 else
+			 {						////SEMINER ODASI SAYACI İÇİN TEKRRA BAK BURAYA
+
+				 if (bos == oda[oda_no])
+				 {
+					 cout << "Bosaltmak Istediginiz Oda Zaten Bos!!" << endl;
+				 }
+				 else
+				 {
+					 cout << "----------Oda  Silinmeden Once Oda Bilgileri-----------:" << endl << endl;
+					 cout << "Isim: " << *customer_name[oda_no] << endl;
+					 cout << "Soyisim: " << *customer_surname[oda_no] << endl;
+					 cout << "Odenecek Para: " << *customer_total_price[oda_no] << endl;
+					 cout << "-----------------------------------------------------------" << endl << endl;
+
+					 oda[oda_no] = bos;
+					 delete  customer_name[oda_no];
+					 delete customer_surname[oda_no]; ///////////???
+					 oda_sayac--;
+					 cout << "Oda bosaltilmistir." << endl << endl;
+				 }
+			 }
+
+		 }
 	 }
-		else
-		{
-		 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
-		 cin >> oda_no;
+	 else if (2 == oda_secim)
+	 {
 
-			if (oda_no>50)
-			{
-			 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
-			}
-			else
-			{						////SEMINER ODASI SAYACI İÇİN TEKRRA BAK BURAYA
-		 
-				if (oda[oda_no]==bos)
-				{
-				cout << "Bosaltmak Istediginiz Oda Zaten Bos!!"<<endl;
-				}
-			    else
-				{
-				cout << "----------Oda  Silinmeden Once Oda Bilgileri-----------:" << endl<<endl;
-				cout << "Isim: " << *customer_name[oda_no]<<endl;
-				cout << "Soyisim: " << *customer_surname[oda_no]<<endl;
-				cout << "Odenecek Para: " << *customer_total_price[oda_no]<<endl;
-				cout << "-----------------------------------------------------------" << endl<<endl;
-
-				oda[oda_no] = bos;
-				delete  customer_name[oda_no];
-				delete customer_surname[oda_no]; ///////////7
-				oda_sayac--;
-				cout << "Oda bosaltilmistir." << endl<<endl;
-				}
-			}
-
-	    }
+		 //SEMİNER ODASI İÇİN SİLME İŞLEMİ GELECEK BURAYA
+	 }
+	 else
+		 cout << "YANLIS TERCIH YAPTINIZ!! LUTFEN TEKRAR DENEYIN." << endl;
 
  }
  void otel::menu()
  {
 	 int secim;
-	 for (int i = 1; i <= 45; i++)
+	 for (int i = 1; i <= 50; i++) //////// oda====45 + 5 seminer olacak, yani 50 ooması lazım...................
 	 {
 		 oda[i] = bos;
 	 }
