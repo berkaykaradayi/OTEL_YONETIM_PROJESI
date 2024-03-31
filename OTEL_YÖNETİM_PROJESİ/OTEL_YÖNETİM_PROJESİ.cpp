@@ -28,6 +28,8 @@ class otel
 		void oda_rezervasyon();
 		void oda_bosaltma();
 		void dolu_oda_sayisi();
+		void oda_raporu();
+		void seminer_oda_raporu();
 
 	~otel(){}
 };
@@ -304,6 +306,16 @@ void otel::dolu_oda_sayisi()
 	cout << "Toplam dolu oda sayisi: " << toplam_sayac2<<endl;
 
  }
+
+void otel::oda_raporu()
+{
+	/////////NURADA KALDIM.
+}
+void otel::seminer_oda_raporu()
+{
+
+}
+
  void otel::menu()
  {
 	 int secim;
@@ -351,11 +363,11 @@ void otel::dolu_oda_sayisi()
 		 }
 		 else if (5 == secim)
 		 {
-
+			 oda_raporu();
 		 }
 		 else if (6 == secim)
 		 {
-
+			 seminer_oda_raporu;
 		 }
 
 		 else if (7 == secim)
@@ -378,6 +390,6 @@ int main()
 	otel hotel; // we create object named "hotel", so it will call constructor that has no parameter(s).
 	           
 	            //we are done for main. All operations will be executed from constructor, which is "otel". 
-							//And that will call the menu() function that will run all other operaitons.
+							//And that will call the menu() function that will run all other operations.
 	return 0;   
 }
