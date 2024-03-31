@@ -12,7 +12,7 @@ class otel
 	string *customer_name[55], *customer_surname[55];
 	int oda_sayac = 0, toplam_para = 0;
 	int seminer_oda_sayac = 0;
-	int toplam_sayac = 0;
+	int toplam_sayac = 0, toplam_sayac2=0;
 	int* customer_total_price[51];
 
 	enum status {
@@ -27,6 +27,7 @@ class otel
 		void menu();
 		void oda_rezervasyon();
 		void oda_bosaltma();
+		void dolu_oda_sayisi();
 
 	~otel(){}
 };
@@ -80,7 +81,7 @@ class otel
 
 					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
 					 toplam_para += gun * 300;
-					 oda_sayac++; // For total room (including seminer room) count
+					 oda_sayac++; // For total room count
 
 					 customer_name[i] = new string;
 					 *customer_name[i] = name;
@@ -292,12 +293,23 @@ class otel
 		 cout << "YANLIS TERCIH YAPTINIZ!! LUTFEN TEKRAR DENEYIN." << endl;
 
  }
+void otel::dolu_oda_sayisi()
+ { 
+	toplam_sayac2 = oda_sayac + seminer_oda_sayac;
+	if (0 == toplam_sayac2)
+	{
+		cout << "Butun odalarimiz bos."<<endl;
+	}
+	else
+	cout << "Toplam dolu oda sayisi: " << toplam_sayac2<<endl;
+
+ }
  void otel::menu()
  {
 	 int secim;
-	 for (int i = 1; i <= 50; i++) //////// oda====45 + 5 seminer olacak, yani 50 ooması lazım...................
+	 for (int i = 1; i <= 50; i++) // Total room counts: 45(for room) + 5 (seminer room), means: 50 rooms.
 	 {
-		 oda[i] = bos;
+		 oda[i] = bos; //assigning "bos" , which means empty, to all room in firstly. So rooms will be available to get booked for customers.
 	 }
 
 	 cout << "           OTELE HOS GELDINIZ." << endl;
@@ -322,34 +334,36 @@ class otel
 		 cin >> secim;
 		
 		 if (1 == secim)
-		{
+		 {
 			 oda_rezervasyon();
 		 }
-		 if (2 == secim)
+		 else if (2 == secim)
 		 {
 			 oda_bosaltma();
 		 }
-		 if (3 == secim)
+		 else if (3 == secim)
+		 {
+			 dolu_oda_sayisi();
+		 }
+		 else if (4 == secim)
 		 {
 
 		 }
-		 if (4 == secim)
+		 else if (5 == secim)
 		 {
 
 		 }
-		 if (5 == secim)
-		 {
-
-		 }
-		 if (6 == secim)
+		 else if (6 == secim)
 		 {
 
 		 }
 
-		 else if (7==secim)
+		 else if (7 == secim)
 		 {
-			cout << "Cikis Yapiliyor..."<<endl;
+			 cout << "Cikis Yapiliyor..." << endl;
 		 }
+		 else
+			 cout << "YANLIS SECIM!! LUTFEN TEKRAR DENEYIN"<<endl;
 			 
 	 } while (secim!=7);
 	 
@@ -357,6 +371,7 @@ class otel
 	 
 
  }
+ 
 
 int main()
 {
