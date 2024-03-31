@@ -12,6 +12,7 @@ class otel
 	string *customer_name[55], *customer_surname[55];
 	int oda_sayac = 0, toplam_para = 0;
 	int seminer_oda_sayac = 0;
+	int toplam_sayac = 0;
 	int* customer_total_price[51];
 
 	enum status {
@@ -46,7 +47,7 @@ class otel
 
 	 cout << "Oda Rezervasyonuna Hos Geldiniz!!" << endl;
 		
-	 if (oda_sayac >= 50)
+	 if (toplam_sayac >= 50)//oda_sayac
 	 {
 		 cout << "Uzgunuz, bos oda ve seminer odasi yok" << endl;
 	 }
@@ -200,7 +201,7 @@ class otel
  void otel::oda_bosaltma()
  {	
 	 int oda_no, /*seminer_no,*/ oda_secim;
-	 int toplam_sayac=0;
+	 //int toplam_sayac=0;
 
 	 cout << "Hangi odayi bosaltmak istiyorsunuz? Normal Oda icin 1, Seminer Odasi icin 2 'ye basin."<<endl;
 	 cin >> oda_secim;
@@ -209,7 +210,7 @@ class otel
 
 	 if (1 == oda_secim)
 	 {
-		 if (oda_sayac == 0 && seminer_oda_sayac)
+		 if (0==toplam_sayac)//oda_sayac == 0 && seminer_oda_sayac==0
 		 {
 			 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
 		 }
@@ -220,7 +221,7 @@ class otel
 
 			 if (oda_no > 50)
 			 {
-				 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
+				 cout << "Boyle bir oda numarasi yok. Lutfen tekrar girin." << endl;
 			 }
 			 else
 			 {						
@@ -239,7 +240,7 @@ class otel
 
 					 oda[oda_no] = bos;
 					 delete  customer_name[oda_no];
-					 delete customer_surname[oda_no]; ///////////???
+					 delete customer_surname[oda_no]; 
 					 oda_sayac--;
 					 cout << "Oda bosaltilmistir." << endl << endl;
 				 }
@@ -249,18 +250,18 @@ class otel
 	 }
 	 else if (2 == oda_secim)
 	 {
-		 if (oda_sayac == 0 && seminer_oda_sayac==0) //toplam_sayac;;
+		 if (0==toplam_sayac) 
 		 {
 			 cout << "Butun odalarimiz zaten bos. Bosaltma islemi gerceklestiremiyoruz. Lutfen baska bir islem yapiniz.";
 		 }
 		 else
 		 {
-			 cout << "Lutfen bosaltmak istediginiz oda numarasini girin" << endl;
+			 cout << "Lutfen bosaltmak istediginiz seminer oda numarasini girin" << endl;
 			 cin >> oda_no;
 
 			 if (oda_no > 50)
 			 {
-				 cout << "Boyle bir oda nuamrasi yok. Lutfen tekrar girin." << endl;
+				 cout << "Boyle bir seminer oda numarasi yok. Lutfen tekrar girin." << endl;
 			 }
 			 else
 			 {						
@@ -279,8 +280,8 @@ class otel
 
 					 oda[oda_no] = bos;
 					 delete  customer_name[oda_no];
-					 delete customer_surname[oda_no]; ///////////???
-					 seminer_oda_sayac--;///////////////////////////////////??????????????
+					 delete customer_surname[oda_no]; 
+					 seminer_oda_sayac--;
 					 cout << "Seminer Odasi bosaltilmistir." << endl << endl;
 				 }
 			 }
