@@ -12,8 +12,11 @@ class otel
 	string *customer_name[55], *customer_surname[55];
 	int oda_sayac = 0, toplam_para = 0;
 	int seminer_oda_sayac = 0;
-	int toplam_sayac = 0, toplam_sayac2=0;
+	int toplam_sayac = 0, toplam_sayac2=0, toplam_sayac3=0;
+		int tek_oda_sayac = 0, cift_oda_sayac=0;
+		
 	int* customer_total_price[51];
+	 int* customer_reserved_days[51];
 
 	enum status {
 		bos, dolu
@@ -30,6 +33,7 @@ class otel
 		void dolu_oda_sayisi();
 		void oda_raporu();
 		void seminer_oda_raporu();
+		void toplam_gelir();
 
 	~otel(){}
 };
@@ -84,12 +88,17 @@ class otel
 					 musteri_para_toplam = gun * 300; // for calculating individual customer's money
 					 toplam_para += gun * 300;
 					 oda_sayac++; // For total room count
-
+						tek_oda_sayac++;//for single-person room cout
+						cout << "Oda numaraniz: " << i << endl;
 					 customer_name[i] = new string;
 					 *customer_name[i] = name;
 
 					 customer_surname[i] = new string;
 					 *customer_surname[i] = surname;
+					 
+					 customer_reserved_days[i]= new int;
+					 *customer_reserved_days[i] = gun; /// last added
+
 
 					 customer_total_price[i] = new int;
 					 *customer_total_price[i] = musteri_para_toplam; // for calculating individual customer's money
@@ -126,14 +135,17 @@ class otel
 					 musteri_para_toplam = gun * 500; // for calculating individual customer's money
 					 toplam_para += gun * 500;
 					 oda_sayac++; // Toplam oda Sayısı için
-
-					 
+					 cift_oda_sayac++; // for double-person room count
+					 cout << "Oda numaraniz: " << j<<endl;
 					 
 					 customer_name[j] = new string;
 					 *customer_name[j] = name;   
 
 					 customer_surname[j] = new string;
 					 *customer_surname[j] = surname;
+
+					 customer_reserved_days[j] = new int;
+					 *customer_reserved_days[j] = gun; /// last added
 
 					 customer_total_price[j] = new int;
 					 *customer_total_price[j] = musteri_para_toplam; // for calculating individual customer's money
@@ -173,11 +185,15 @@ class otel
 
 					 seminer_oda_sayac++; // Seminer Oda Sayısı için
 					 //oda_sayac++;
+					 cout << "Seminer Oda numaraniz: " << k<<bosluk;
 					 customer_name[k] = new string;
 					 *customer_name[k] = name;
 
 					 customer_surname[k] = new string;
 					 *customer_surname[k] = surname;
+
+					 customer_reserved_days[k] = new int;
+					 *customer_reserved_days[k] = gun; /// last added
 
 					 customer_total_price[k] = new int;
 					 *customer_total_price[k] = musteri_para_toplam; // for calculating individual customer's money
@@ -245,6 +261,19 @@ class otel
 					 delete  customer_name[oda_no];
 					 delete customer_surname[oda_no]; 
 					 oda_sayac--;
+
+					 if (1<=oda_no && oda_no<=15)
+					 {
+						 tek_oda_sayac--;
+					 }
+					 else if (16 <= oda_no && oda_no <= 45)
+					 {
+						 cift_oda_sayac--;
+					 }
+					 
+
+					 
+					  
 					 cout << "Oda bosaltilmistir." << endl << endl;
 				 }
 			 }
@@ -308,10 +337,69 @@ void otel::dolu_oda_sayisi()
  }
 
 void otel::oda_raporu()
-{
-	/////////NURADA KALDIM.
+{	
+	//toplam_sayac3 = oda_sayac + seminer_oda_sayac;
+
+	if (0==oda_sayac)
+	{
+		cout << "Butun odalarimiz bos..." << endl;
+	}
+	else
+	{
+		cout << "----------------ODA BILGILERI-----------------"<<endl;
+		cout << "   ---------------------------------------   " << endl;
+		cout << "   ---------------------------------------  " << endl;
+		cout << "Isim:             " << "Soyisim:                " << "Kalinan Gun Sayisi:        " << "Odenecek Tutar:  "<<bosluk;
+		
+			if (0!=tek_oda_sayac && 0!=cift_oda_sayac)
+			{
+				for (int i = 1; i <= tek_oda_sayac; i++)
+				{
+					cout << *customer_name[i] << "              " << *customer_surname[i] << "              "<<*customer_reserved_days[i] << "             "<<*customer_total_price[i]<<bosluk;
+		
+					cout << "   --------------------------------------------------------------   " << endl;
+				}
+
+				for (int j = 16; j <= 16 + cift_oda_sayac - 1; j++)
+				{
+					cout << *customer_name[j] << "              " << *customer_surname[j] << "              " << *customer_reserved_days[j] << "             " << *customer_total_price[j] << bosluk;
+
+					cout << "   --------------------------------------------------------------   " << endl;
+				}				
+				
+			}
+			else if(0!=tek_oda_sayac)
+			{
+				for (int i = 1; i <= tek_oda_sayac; i++)
+				{
+					cout << *customer_name[i] << "              " << *customer_surname[i] << "              " << *customer_reserved_days[i] << "             " << *customer_total_price[i] << bosluk;
+
+					cout << "   --------------------------------------------------------------   " << endl;
+				}
+
+			}		
+			else
+			{
+				for (int j = 16; j <= 16 + cift_oda_sayac - 1; j++)
+				{
+					cout << *customer_name[j] << "              " << *customer_surname[j] << "              " << *customer_reserved_days[j] << "             " << *customer_total_price[j] << bosluk;
+
+					cout << "   --------------------------------------------------------------   " << endl;
+				}
+
+			}
+	}
+	
+	
 }
 void otel::seminer_oda_raporu()
+{
+	
+	
+		
+}
+
+void otel::toplam_gelir()
 {
 
 }
@@ -341,7 +429,7 @@ void otel::seminer_oda_raporu()
 		cout << "4 - Yatak Odasi Raporu." << endl;
 		 cout << "5 - Seminer Odasi Raporu." << endl;
 		 cout << "6 - Gunluk Toplam Gelir." << endl;
-		cout << "7 - Cikis Yap..." << endl;
+		cout << "7 - Cikis Yap..." << bosluk;
 
 		 cin >> secim;
 		
@@ -359,15 +447,15 @@ void otel::seminer_oda_raporu()
 		 }
 		 else if (4 == secim)
 		 {
-
+			oda_raporu();
 		 }
 		 else if (5 == secim)
 		 {
-			 oda_raporu();
+			 seminer_oda_raporu();
 		 }
 		 else if (6 == secim)
 		 {
-			 seminer_oda_raporu;
+			 toplam_gelir();
 		 }
 
 		 else if (7 == secim)
@@ -393,3 +481,8 @@ int main()
 							//And that will call the menu() function that will run all other operations.
 	return 0;   
 }
+
+
+
+//1)tek_oda_sayac ve cift_oda_sayac eklendi oda_bosaltma() içine.
+// 2)   ///////////////////// seminer_oda bosaltma eklenecek 
