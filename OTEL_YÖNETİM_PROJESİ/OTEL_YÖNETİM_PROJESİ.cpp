@@ -486,3 +486,4 @@ int main()
 
 //1)tek_oda_sayac ve cift_oda_sayac eklendi oda_bosaltma() içine.
 // 2)   ///////////////////// seminer_oda bosaltma eklenecek 
+//3) Toplam Gelir yazdır
