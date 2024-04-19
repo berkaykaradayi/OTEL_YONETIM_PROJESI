@@ -355,14 +355,14 @@ void otel::oda_raporu()
 			{
 				for (int i = 1; i <= tek_oda_sayac; i++)
 				{
-					cout << *customer_name[i] << "              " << *customer_surname[i] << "              "<<*customer_reserved_days[i] << "             "<<*customer_total_price[i]<<bosluk;
+					cout << *customer_name[i] << "              " << *customer_surname[i] << "                     "<<*customer_reserved_days[i] << "                      "<<*customer_total_price[i]<<bosluk;
 		
 					cout << "   --------------------------------------------------------------   " << endl;
 				}
 
 				for (int j = 16; j <= 16 + cift_oda_sayac - 1; j++)
 				{
-					cout << *customer_name[j] << "              " << *customer_surname[j] << "              " << *customer_reserved_days[j] << "             " << *customer_total_price[j] << bosluk;
+					cout << *customer_name[j] << "              " << *customer_surname[j] << "                      " << *customer_reserved_days[j] << "                   " << *customer_total_price[j] << bosluk;
 
 					cout << "   --------------------------------------------------------------   " << endl;
 				}				
@@ -372,7 +372,7 @@ void otel::oda_raporu()
 			{
 				for (int i = 1; i <= tek_oda_sayac; i++)
 				{
-					cout << *customer_name[i] << "              " << *customer_surname[i] << "              " << *customer_reserved_days[i] << "             " << *customer_total_price[i] << bosluk;
+					cout << *customer_name[i] << "              " << *customer_surname[i] << "                       " << *customer_reserved_days[i] << "                   " << *customer_total_price[i] << bosluk;
 
 					cout << "   --------------------------------------------------------------   " << endl;
 				}
@@ -382,7 +382,7 @@ void otel::oda_raporu()
 			{
 				for (int j = 16; j <= 16 + cift_oda_sayac - 1; j++)
 				{
-					cout << *customer_name[j] << "              " << *customer_surname[j] << "              " << *customer_reserved_days[j] << "             " << *customer_total_price[j] << bosluk;
+					cout << *customer_name[j] << "              " << *customer_surname[j] << "                       " << *customer_reserved_days[j] << "                   " << *customer_total_price[j] << bosluk;
 
 					cout << "   --------------------------------------------------------------   " << endl;
 				}
@@ -394,7 +394,28 @@ void otel::oda_raporu()
 }
 void otel::seminer_oda_raporu()
 {
-	
+	if (0 == seminer_oda_sayac) //seminer odası
+	{
+		cout << "Butun seminer odalarimiz bos..." << endl;
+	}
+	else
+	{
+		cout << "----------------SEMINER ODA BILGILERI-----------------" << endl;
+		cout << "   ---------------------------------------   " << endl;
+		cout << "   ---------------------------------------  " << endl;
+		cout << "Isim:             " << "Soyisim:                " << "Kalinan Gun Sayisi:        " << "Odenecek Tutar:  " << bosluk;
+
+		if (0 != seminer_oda_sayac)
+		{
+			for (int z = 46; z <= 46+seminer_oda_sayac-1; z++)
+			{
+				cout << *customer_name[z] << "              " << *customer_surname[z] << "                            " << *customer_reserved_days[z] << "                        " << *customer_total_price[z] << bosluk;
+
+				cout << "   --------------------------------------------------------------   " << endl;
+			}
+		}
+
+	}
 	
 		
 }
@@ -484,6 +505,6 @@ int main()
 
 
 
-//1)tek_oda_sayac ve cift_oda_sayac eklendi oda_bosaltma() içine.
-// 2)   ///////////////////// seminer_oda bosaltma eklenecek 
+//1)tek_oda_sayac ve cift_oda_sayac eklendi oda_bosaltma() içine. (yapıldı)
+// 2)   ///////////////////// seminer_oda raporu ve oda bosaltma eklenecek (yapıldı)
 //3) Toplam Gelir yazdır
