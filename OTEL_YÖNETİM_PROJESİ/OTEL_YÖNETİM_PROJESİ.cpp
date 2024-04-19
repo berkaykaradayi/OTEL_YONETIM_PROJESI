@@ -442,7 +442,7 @@ void otel::toplam_gelir()
 	 {
 		
 
-		cout << "Lutfen yapmak istediğiniz islemi secin." << endl;
+		cout<<bosluk << "Lutfen yapmak istediğiniz islemi secin." << endl;
 
 		 cout << "1 - Oda Rezervasyonu." << endl;
 		cout << "2 - Oda Bosaltma." << endl;
