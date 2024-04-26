@@ -422,7 +422,7 @@ void otel::seminer_oda_raporu()
 
 void otel::toplam_gelir()
 {
-
+	cout << bosluk<<"Odalarin Toplam Geliri: " << toplam_para<<bosluk;
 }
 
  void otel::menu()
