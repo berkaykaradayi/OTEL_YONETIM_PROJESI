@@ -511,3 +511,8 @@ int main()
 
 
 ////////4) (FROM VS CODE ) test, to see if will push.............
+
+//////5) (from Visual Studio) project sol and name has changed, beacuse vs code dis not recognise Turkish chars 
+																//(Previous version of the project's name had Turkish chars.)
+																//It was working very well with visual st. but when i tried to
+																  // clone repo from github, it did not work on vs code. So I had to change its names manually.
