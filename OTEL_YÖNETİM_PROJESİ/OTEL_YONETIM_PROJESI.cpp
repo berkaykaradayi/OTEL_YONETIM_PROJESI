@@ -516,4 +516,10 @@ int main()
 //////5) (from Visual Studio) project sol and name has changed, beacuse vs code dis not recognise Turkish chars 
 																//(Previous version of the project's name had Turkish chars.)
 																//It was working very well with visual st. but when i tried to
-																  // clone repo from github, it did not work on vs code. So I had to change its names manually.
+																  // clone repo from github, dfgit did not work on vs code. So I had to change its names manually.
+
+
+////// 6 (LAST UPDATE) ) 
+		// Reverted to old file names... because during the repo cloning process,( or trying to open the same project in visual st.) 
+			//to another ide(like, visual studio) error occurs after I comitted changes I made in VS Code. 
+					//Probably, VS Code has no Turkish characters support for file names.. 
